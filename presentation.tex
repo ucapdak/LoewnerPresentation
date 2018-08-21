@@ -2,6 +2,21 @@
 \usepackage[latin1]{inputenc}
 \usepackage{tikz}
 \usepackage{tikzscale}
+\usepackage{pgfplots}
+
+\pgfplotsset{
+  /pgfplots/xlabel near ticks/.style={
+     /pgfplots/every axis x label/.style={
+        at={(ticklabel cs:0.5)},anchor=near ticklabel
+     }
+  },
+  /pgfplots/ylabel near ticks/.style={
+     /pgfplots/every axis y label/.style={
+        at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel}
+     }
+  }
+
+\usepgfplotslibrary{groupplots}
 \usepackage{filecontents}
 \usepackage{adjustbox}
 
@@ -13,12 +28,13 @@
 
 \begin{document}
 
+% Title Page
 \begin{frame}
 \titlepage
 \end{frame}
 
+% Introducing Loewner's Equation
 \begin{frame}{Loewner's Equation}
-
 \begin{adjustbox}{max totalsize={.9\textwidth}{.7\textheight},center}
 \input{tikz/diagrams/intro.tikz}
 \end{adjustbox}
@@ -31,7 +47,25 @@ Applications:
 \item Formation of stream networks
 \item Percolation/self-avoiding walks
 \end{itemize}
+\end{frame}
 
+% Project Objectives
+\begin{frame}{Project Objectives}
+\end{frame}
+
+% The Forward Problem
+\begin{frame}{The Forward Problem}
+\end{frame}
+
+% The Forward Problem - Algorithm (2.1 From Report)
+\begin{frame}{The Forward Problem: Algorithm}
+\end{frame}
+
+% Linear Driving
+\begin{frame}{Linear Driving}
+\begin{adjustbox}{max totalsize={.9\textwidth}{.7\textheight},center}
+\input{tikz/inverse/linear.tikz}
+\end{adjustbox}
 \end{frame}
 
 \end{document}

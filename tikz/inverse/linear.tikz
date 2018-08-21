@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \begin{groupplot}[
+            group style={
+                horizontal sep = 45pt,
+                group name=left plots,
+                group size=2 by 1,
+                },
+            ymin=0,
+            ylabel near ticks,
+            height=0.4\textwidth,
+            width=0.4\textwidth,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            ]
+        \nextgroupplot[xlabel={$\operatorname{Re}(z)$},ylabel={$\operatorname{Im}(z)$},]
+            \addplot table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/1-0-25-1000-10.dat};
+        \nextgroupplot[xmin=0,xmax=25,ymax=25,xlabel={$t$},ylabel={${\xi(t)}$},]
+            \addplot[color=red] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/1-0-25-1000-10.dat};
+    \end{groupplot}
+\end{tikzpicture}
