@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+\fill [gray!25] (-3,0) rectangle (2,3);
+    \draw [line width=0.5mm,red] plot [smooth, tension=1] coordinates {(0,0) (-1,1) (0,2) (1,2) (0,1) (1,1)};
+    \draw [line width=0.5mm, black]  (-3,0) -- (2,0);
+    \draw (2,3) node[below=0.5em,left=1pt] {$z$-plane};
+    \draw (0,0) node[below=1mm] {$\gamma(t)$};
+    \draw (0,0) node[xshift=-0.05cm,circle,black,inner sep=0pt,minimum size=1.5mm,fill,label=$a \ \ $]{};
+    \draw (0,0) node[xshift=0.05cm,circle,black,inner sep=0pt,minimum size=1.5mm,fill,label=$\ \ c$]{};
+    \draw (1,1)  node[circle,inner sep=0pt, minimum size=1.5mm,fill,label=$b$]{};
+    \node[anchor=east,xshift=5cm,circle] at (-2,1.6) (Start) {};
+    \node[anchor=west,xshift=5cm,circle] at (1,1.6) (End) {};
+    \draw [->,out=40,in=140,looseness=0.75] (Start.north) to node[above=2pt]{$g_t$}  (End.north);
+    \draw [->,out=260,in=300,looseness=0.75] (End.south) to node[below=2pt]{$f_t$}  (Start.south);
+    \fill [gray!25,xshift=10cm] (-3,0) rectangle (2,3);
+    \draw [line width=0.5mm, black,xshift=10cm]  (-3,0) -- (2,0);
+    \draw [line width=0.8mm, blue,xshift=10cm]  (-2.5,0) -- (1.5,0);
+    \draw (-2.5,0) node[circle,black,inner sep=0pt,xshift=10cm,minimum size=1.5mm,fill,label=$a$]{};
+    \draw (0,0) node[circle,black,inner sep=0pt,xshift=10cm,minimum size=1.5mm,fill,label=$b$]{};
+    \draw (1.5,0)  node[xshift=10cm,circle,inner sep=0pt, minimum size=1.5mm,fill,label=$c$]{};
+    \draw (0,0) node[xshift=10cm,below=2] {$\xi(t)$};
+    \draw (2,3) node[xshift=10cm,below=0.5em,left=1pt] {$w$-plane};
+\end{tikzpicture}

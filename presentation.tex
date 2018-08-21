@@ -1,19 +1,37 @@
 \documentclass{beamer}
 \usepackage[latin1]{inputenc}
-\usetheme{Warsaw}
-\title[Make a LaTeX presentation using Beamer]{Introduction  to Beamer\\How to make a presentation with LaTeX?}
-\author{Nadir Soualem -- Astozzia}
-\institute{Math-linux.com}
-\date{Jule 13, 2007}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{filecontents}
+\usepackage{adjustbox}
+
+\usetheme{Dresden}
+\usecolortheme{beaver}
+\title[]{Numerical Solutions to Loewner's Equation and Applications}
+\author{Dolica Akello-Egwel}
+\date{September 4th 2018}
+
 \begin{document}
 
 \begin{frame}
 \titlepage
 \end{frame}
 
+\begin{frame}{Loewner's Equation}
 
-\begin{frame}{Introduction}
-This is a short introduction to Beamer class.
+\begin{adjustbox}{max totalsize={.9\textwidth}{.7\textheight},center}
+\input{tikz/diagrams/intro.tikz}
+\end{adjustbox}
+
+$$g_t = \frac{2}{g - \xi(t)} \quad\quad\quad g_0(z) = z$$
+
+Applications:
+\begin{itemize}
+\item Growth of cracks
+\item Formation of stream networks
+\item Percolation/self-avoiding walks
+\end{itemize}
+
 \end{frame}
 
 \end{document}
