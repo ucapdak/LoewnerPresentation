@@ -3,7 +3,7 @@
 \usepackage{tikz}
 \usepackage{tikzscale}
 \usepackage{pgfplots}
-
+\pgfplotsset{compat=1.15}
 \pgfplotsset{
   /pgfplots/xlabel near ticks/.style={
      /pgfplots/every axis x label/.style={
@@ -62,10 +62,15 @@ Applications:
 \end{frame}
 
 % Linear Driving
-\begin{frame}{Linear Driving}
-\begin{adjustbox}{max totalsize={.9\textwidth}{.7\textheight},center}
-\input{tikz/inverse/linear.tikz}
+\begin{frame}{Linear Driving - $xi(t) = t$}
+    \begin{tabular}{cc}
+\begin{adjustbox}{max totalsize={.3\textwidth}{.9\textheight}}
+\input{tikz/exactquadratic/linear.tikz}
 \end{adjustbox}
+\begin{adjustbox}{max totalsize={.7\textwidth}{.9\textheight}}
+\input{tikz/exactquadratic/linearphi.tikz}
+\end{adjustbox}
+\end{tabular}
 \end{frame}
 
 \end{document}
