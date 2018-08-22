@@ -15,10 +15,13 @@
         at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel}
      }
   }
-
+\usepackage[algosection,  linesnumbered]{algorithm2e}
+\usepackage{enumerate}
 \usepgfplotslibrary{groupplots}
 \usepackage{filecontents}
 \usepackage{adjustbox}
+
+\setbeamertemplate{itemize items}[circle]
 
 \usetheme{Dresden}
 \usecolortheme{beaver}
@@ -39,7 +42,7 @@
 \input{tikz/diagrams/intro.tikz}
 \end{adjustbox}
 
-$$g_t = \frac{2}{g - \xi(t)} \quad\quad\quad g_0(z) = z$$
+$$g_t = \frac{2}{g - \xi(t)}, \quad\quad\quad g_0(z) = z$$
 
 Applications:
 \begin{itemize}
@@ -51,14 +54,59 @@ Applications:
 
 % Project Objectives
 \begin{frame}{Project Objectives}
+    \begin{enumerate}[(i)]
+    \item Forward problem: Numerically solve Loewner's equation given $\xi(t)$ to find trace
+    \item Inverse problem: Given the trace, find the driving function $\xi(t)$
+    \item Two-trace evolutions
+    \item Evolution in a wedge geometry
+\end{enumerate}
 \end{frame}
 
 % The Forward Problem
 \begin{frame}{The Forward Problem}
+    \begin{itemize}
+        \item Objective: Given a driving function $\xi(t)$, find the trace.
+        \item Numerical approach: Use finite differences, follow a technique described by Kager et al. (2004).
+    \end{itemize}
+
+    \begin{equation*}
+        \dot{g_t} \simeq \frac{g_t - g_{t - \delta t}}{\delta t} = \frac{2}{g_{t - \delta t} - \xi(t - \partial t)}
+    \end{equation*}
+
+    \begin{itemize}
+        \item $\Rightarrow$ Determine $g_{t - \delta t}$ by solving a quadratic
+        \item  Find $g_{t - 2\delta t},g_{t - 3\delta t} \dots \Rightarrow$ Find $g_0$
+    \end{itemize}
+
 \end{frame}
 
 % The Forward Problem - Algorithm (2.1 From Report)
 \begin{frame}{The Forward Problem: Algorithm}
+\begin{algorithm}[H]
+    \footnotesize
+    \SetKwFunction{Lin}{Linspace}
+    \SetKwFunction{Sol}{SolveQuadratic}
+    \SetKwFunction{Com}{complex}
+
+        \KwIn{$T_0$, $T_F$, $N_{\text{inner}}$, $N_{\text{outer}}$, $\xi(t)$}
+        \KwOut{An array $z[\thinspace]$ containing $N_{\text{outer}}$ values of $g_0$}
+
+        $ N_{\text{total}} \leftarrow (N_{\text{outer}} - 1)*N_{\text{inner}}$ \\
+        $ t[\thinspace] \leftarrow \Lin(T_0,T_F,N_{\text{total}})$ \\
+        $ \delta t \leftarrow t_1$ \\
+
+        $ z[\thinspace] \leftarrow \Com[N_{\text{outer}}] $ \\
+        $ z_0 \leftarrow \xi(T_0) $ \\
+
+        \For{$ i \leftarrow 1 \enspace \KwTo \enspace N_{\text{outer}} - 1$}{
+            $ g_\text{J} \leftarrow \xi(T_i) $ \\
+            \For{$ j \leftarrow i*N_{\text{inner}} \enspace \KwTo \enspace 0$}{
+                $ g_\text{j - 1} \leftarrow \Sol((g_j - g_{j-1})(g_{j-1} - \xi(t_{j-1})) - 2\delta t = 0) $
+         }
+        $ z_i \leftarrow g_0 $
+ }
+\nl\KwRet{$z[\thinspace]$}
+\end{algorithm}
 \end{frame}
 
 % Linear Driving
