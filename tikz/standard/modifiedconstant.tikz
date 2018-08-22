@@ -39,5 +39,5 @@
                 \fill (0,2) circle[radius=2pt];
             \end{axis}
     \node[xshift=75pt] at ($(mygraph.south east)!0.5!(mygraph.north east)$){Exact solution:};
-    \node[xshift=75pt,yshift=-15pt] at ($(mygraph.south east)!0.5!(mygraph.north east)$){$z_c(t) = 2i \sqrt{T_F}$};
+    \node[xshift=75pt,yshift=-15pt] at ($(mygraph.south east)!0.5!(mygraph.north east)$){$z_c(t) = C + 2i \sqrt{t}$};
 \end{tikzpicture}
