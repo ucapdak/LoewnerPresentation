@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+    \begin{groupplot}[
+            group style={
+                horizontal sep = 45pt,
+                group name=left plots,
+                group size=2 by 1,
+            },
+            height=0.7\textwidth,
+            width=0.7\textwidth,
+            tick align=inside,
+            xlabel near ticks,
+            ylabel near ticks,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            ]
+        \nextgroupplot[title={$\xi(t) = \lfloor t \rfloor$},ymin=0,xlabel={$\operatorname{Re}(z)$},ylabel={$\operatorname{Im}(z)$},legend pos=south east]
+            \addplot[color=black,line width=1.5pt] table [mark=none,smooth] {Data/SingleTrace/Forward/1-0-25-1000-10.dat};
+            \addplot[color=red,line width=1.5pt] table [mark=none,smooth] {Data/SingleTrace/Forward/12-0-25-1000-10.dat};
+            \legend{$\xi(t) = t$,$\xi(t) = \lfloor t \rfloor$};
+        \nextgroupplot[extra x ticks={0.5},ymin=0,ymax=11,xlabel={$\operatorname{Re}(z)$},ylabel={$\operatorname{Im}(z)$},title={$\xi(t) = \lfloor t \rfloor \mod 2$}]
+            \draw[black,dotted,very thick] (0.5,0) -- (0.5,11);
+            \addplot+[,line width=1.5pt] table [mark=none,smooth] {Data/SingleTrace/Forward/13-0-25-1000-10.dat};
+    \end{groupplot}
+\end{tikzpicture}
