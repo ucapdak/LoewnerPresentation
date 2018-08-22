@@ -1,0 +1,43 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            name=mygraph,
+            ymin=0,
+            xmin=-0.5,
+            xmax=0.5,
+            xlabel={$\operatorname{Re}(z)$},
+            ylabel={$\operatorname{Im}(z)$},
+            height=\axisdefaultheight,
+            width=\axisdefaultwidth,
+            ylabel near ticks,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            cycle list name=exotic,
+            ] % enabling scale only axis destroys this plot
+                \addplot+[line width=2pt] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/0-0-25-1000-10.dat};
+                \addplot+[line width=2pt] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/0-0-16-1000-10.dat};
+                \addplot+[line width=2pt] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/0-0-9-1000-10.dat};
+                \addplot+[line width=2pt] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/0-0-4-1000-10.dat};
+                \addplot+[line width=2pt] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/0-0-1-1000-10.dat};
+                \draw[red,dotted,very thick] (-0.5,2) -- (0,2);
+                \node[black,right=5pt] at (axis cs:0,2){$T_F = 1$};
+                \draw[red,dotted,very thick] (-0.5,4) -- (0,4);
+                \node[black,right=5pt] at (axis cs:0,4){$T_F = 4$};
+                \draw[red,dotted,very thick] (-0.5,6) -- (0,6);
+                \node[black,right=5pt] at (axis cs:0,6){$T_F = 9$};
+                \draw[red,dotted,very thick] (-0.5,8) -- (0,8);
+                \draw[red,dotted,very thick] (-0.5,10) -- (0,10);
+                \node[black,right=5pt] at (axis cs:0,8){$T_F = 16$};
+                \node[black,right=5pt,] at (axis cs:0,10){$T_F = 25$};
+                \fill (0,10) circle[radius=2pt];
+                \fill (0,8) circle[radius=2pt];
+                \fill (0,6) circle[radius=2pt];
+                \fill (0,4) circle[radius=2pt];
+                \fill (0,2) circle[radius=2pt];
+            \end{axis}
+    \node[xshift=75pt] at ($(mygraph.south east)!0.5!(mygraph.north east)$){Exact solution:};
+    \node[xshift=75pt,yshift=-15pt] at ($(mygraph.south east)!0.5!(mygraph.north east)$){$z_c(t) = 2i \sqrt{T_F}$};
+\end{tikzpicture}
