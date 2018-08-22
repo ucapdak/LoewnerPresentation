@@ -19,7 +19,7 @@
             \addplot[black,dash pattern=on 5pt off 3pt,line width=2pt] table [col sep=space,smooth] {Data/SingleTrace/ExactForward/1-0-25-1000.dat};
             \legend{{Numerical},{Exact}};
         \nextgroupplot[xlabel={$N_{\text{inner}}$},ylabel={Root-Mean-Square Error},]
-            \addplot[color=green!70!black,mark=square*] table [col sep=space] {Data/SingleTrace/RootMeanSquared/Forward/1-RMS.dat};
+            \addplot[color=green!70!black,mark=square*,line width=0.5mm] table [col sep=space] {Data/SingleTrace/RootMeanSquared/Forward/1-RMS.dat};
     \end{groupplot}
 \end{tikzpicture}
 

@@ -21,7 +21,7 @@
             y grid style={gray!25},
             ]
         \nextgroupplot[]
-            \addplot table [col sep=space,mark=none,smooth] {Data/SingleTrace/ExactForward/1-PHI-0point00314-3point13845-1000.dat};
+            \addplot+[line width=0.5mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/ExactForward/1-PHI-0point00314-3point13845-1000.dat};
     \end{groupplot}
     \node[yshift=65pt,anchor=west,xshift=-15pt] at ($(left plots c1r1.north east)!0.9!(left plots c1r1.north west)$){\textbf{Exact Solutions:}};
     \node[yshift=47pt,anchor=west,xshift=-15pt] at ($(left plots c1r1.north east)!0.9!(left plots c1r1.north west)$){Explicit: $z_c(t) = 2 - 2 \phi_t \cot \phi_t + 2i \phi_t$};

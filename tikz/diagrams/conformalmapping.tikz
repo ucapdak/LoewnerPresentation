@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\fill [gray!25] (-2.5,0) rectangle (2.5,4);
+    \draw [line width=0.5mm,red] plot [smooth, tension=1] coordinates {(0,0) (0,1.5) (1.5,1) (1.5,2.5) };
+    \draw [line width=0.8mm,black,dotted] plot [smooth, tension=1] coordinates {(0,0) (0,1.5) (1.5,1) (1.5,2.5) };
+    \draw (1.5,1) node[below=1.7pt,right=0.5pt] {$\gamma(t)$};
+    \draw [line width=0.5mm, black]  (-2.5,0) -- (2.5,0);
+    \draw (0,0)  node[circle,inner sep=0pt, minimum size=1mm,fill] {};
+    \draw (0,0)  node[below=3pt] {$z_0$};
+    \draw (1.5,2.5)  node[circle,inner sep=0pt,minimum size =1mm,fill,label=$z_k$] {};
+    \node[anchor=east,xshift=5cm] at (-1.5,2) (empty1) {};
+    \node[anchor=west,xshift=5cm] at (1.5,2) (empty2) {};
+    \draw[line width=0.5mm] (empty1) edge[->] (empty2);
+    \draw (0,2.5) node[xshift=5cm,above] {\small $h_k \circ h_{k - 1} \circ \dots \circ h_1(z_k)$};
+    \fill [gray!25,xshift=10cm] (-2.5,0) rectangle (2.5,4);
+    \draw [line width=0.5mm, black,xshift=10cm]  (-2.5,0) -- (2.5,0);
+\end{tikzpicture}
