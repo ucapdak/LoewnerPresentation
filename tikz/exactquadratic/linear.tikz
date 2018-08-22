@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+    \begin{groupplot}[
+            group style={
+                group name=left plots,
+                group size=1 by 2,
+                vertical sep = 45pt},
+            height=0.4\textwidth,
+            width=0.4\textwidth,
+            clip mode=individual,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            scale only axis]
+        \nextgroupplot[ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},ymin=0,legend pos = south east,]
+            \addplot[orange,line width=2pt] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/1-0-25-1000-10.dat};
+            \addplot[black,dash pattern=on 5pt off 3pt,line width=2pt] table [col sep=space,smooth] {Data/SingleTrace/ExactForward/1-0-25-1000.dat};
+            \legend{{Numerical},{Exact}};
+        \nextgroupplot[xlabel={$N_{\text{inner}}$},ylabel={Root-Mean-Square Error},]
+            \addplot[color=green!70!black,mark=square*] table [col sep=space] {Data/SingleTrace/RootMeanSquared/Forward/1-RMS.dat};
+    \end{groupplot}
+\end{tikzpicture}
+

@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+    \begin{groupplot}[
+            group style={
+                group name=left plots,
+                group size=1 by 1,
+                vertical sep = 50pt,
+                y descriptions at=edge left},
+            height=160pt,
+            width=0.9\textwidth,
+            xmin=-50,
+            ymin=0,
+            xmax=2100,
+            ylabel={$\operatorname{Im}(z)$},
+            xlabel={$\operatorname{Re}(z)$},
+            ylabel near ticks,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            ]
+        \nextgroupplot[]
+            \addplot table [col sep=space,mark=none,smooth] {Data/SingleTrace/ExactForward/1-PHI-0point00314-3point13845-1000.dat};
+    \end{groupplot}
+    \node[yshift=-65pt] at ($(left plots c1r1.south east)!0.5!(left plots c1r1.south west)$){};
+\end{tikzpicture}
+
