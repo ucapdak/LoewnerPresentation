@@ -182,8 +182,16 @@ Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
 
 % Two-Trace Evolution
 \begin{frame}{Two-Trace Evolution}
-    % (58) then (59)
-    % Then procedure is (60) -> (63) (Cubic)
+    Loewner's equation for two interacting traces:
+    \begin{align*}
+        \frac{dg_t}{dt} &= \sum_{j=1}^2 \frac{d_j}{g_t - \xi_i (t)}, \\
+        &= \frac{2g_t}{g_t^2 - \xi(t)^2}.
+    \end{align*}
+    Then the procedure is
+    \begin{gather*}
+        \frac{\delta g}{\delta t} =  \frac{2g}{g^2 - \xi(t - \delta t)}, \\
+     \Rightarrow {g_{t - \delta t}}^{3} - {g_{t - \delta t}}^{2} {g_t} + {g_{t -\delta t}} (2 \, {\delta t} - {\xi(t - \delta t)}^{2} ) + {g_t} {\xi(t - \delta t)}^{2} = 0.
+    \end{gather*}
 \end{frame}
 
 % Inverse Problem
