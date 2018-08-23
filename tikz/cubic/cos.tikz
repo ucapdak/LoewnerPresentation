@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+    \begin{groupplot}[
+            group style={
+                group name=left plots,
+                group size=2 by 2,
+                horizontal sep = 55pt,
+                vertical sep = 60pt,},
+            ymin=0,
+            ymax=12,
+            height=170pt,
+            width=170pt,
+            xlabel near ticks,
+            ylabel near ticks,
+            xlabel={$\operatorname{Re}(z)$},
+            ylabel={$\operatorname{Im}(z)$},
+            clip mode=individual,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            scale only axis]
+        \nextgroupplot[title={\large$\xi_{1,2}(t) = \pm \cos(t)$},xmax=5,xmin=-5]
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/2-0-10-1000-10-A.dat};
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/2-0-10-1000-10-B.dat};
+        \nextgroupplot[title={\large$\xi_{1,2}(t) = \pm t \cos(t)$},]
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/3-0-10-1000-10-A.dat};
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/3-0-10-1000-10-B.dat};
+        \nextgroupplot[title={\large$\xi_{1,2}(t) = \pm \cos(\pi t)$},xmax=5,xmin=-5]
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/4-0-10-1000-10-A.dat};
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/4-0-10-1000-10-B.dat};
+        \nextgroupplot[title={\large$\xi_{1,2}(t) = \pm t \cos(\pi t)$},]
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/5-0-10-1000-10-A.dat};
+            \addplot[blue,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/5-0-10-1000-10-B.dat};
+    \end{groupplot}
+\end{tikzpicture}

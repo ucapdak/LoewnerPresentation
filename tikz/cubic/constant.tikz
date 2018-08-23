@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+    \begin{groupplot}[
+            group style={
+                group name=left plots,
+                group size=2 by 1,
+                horizontal sep = 55pt},
+            height=0.4\textwidth,
+            width=0.4\textwidth,
+            clip mode=individual,
+            xlabel near ticks,
+            ylabel near ticks,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            scale only axis]
+        \nextgroupplot[ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},ymin=0,legend style={at={(0.5,0.05)},anchor=south}]
+            \addplot[orange,line width=2pt,] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/0-0-10-1000-10-A.dat};
+            \addplot[orange,forget plot,line width=2pt,] table [col sep=space,mark=none,smooth] {Data/TwoTrace/Forward/0-0-10-1000-10-B.dat};
+            \addplot[black,dash pattern=on 5pt off 3pt,dash phase=6pt,line width=2pt,] table [col sep=space,mark=none,smooth] {Data/TwoTrace/ExactSolutions/0-0-10-1000-A.dat};
+            \addplot[black,dash pattern=on 5pt off 3pt,forget plot,line width=2pt,] table [col sep=space,mark=none,smooth] {Data/TwoTrace/ExactSolutions/0-0-10-1000-B.dat};
+            \legend{{Numerical},{Exact}};
+        \nextgroupplot[xlabel={$N_\text{inner}$},ylabel={Root-Mean-Square Error},]
+            \addplot[color=green!70!black,mark=square*,line width=2pt] table [col sep=space] {Data/TwoTrace/RootMeanSquared/Forward/0-RMS-A.dat};
+    \end{groupplot}
+\end{tikzpicture}

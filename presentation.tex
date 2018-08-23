@@ -184,7 +184,7 @@ Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
 \begin{frame}{Two-Trace Evolution}
     Loewner's equation for two interacting traces:
     \begin{align*}
-        \frac{dg_t}{dt} &= \sum_{j=1}^2 \frac{d_j}{g_t - \xi_i (t)}, \\
+        \frac{dg_t}{dt} &= \sum_{j=1}^2 \frac{d_j}{g_t - \xi_j (t)}, \\
         &= \frac{2g_t}{g_t^2 - \xi(t)^2}.
     \end{align*}
     Then the procedure is
@@ -194,19 +194,17 @@ Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
     \end{gather*}
 \end{frame}
 
-% Inverse Problem
-\begin{frame}{Inverse Problem}
-    Objective: Given the trace curve, find $\xi(t)$.
+% Two-Trace Evolution - xi(t) = 1
+\begin{frame}{Two-Trace Evolution - $\xi(t) = 1$}
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
-\input{tikz/diagrams/conformalmapping.tikz}
+\input{tikz/cubic/constant.tikz}
 \end{adjustbox}
 \end{frame}
 
-% Inverse Problem
-\begin{frame}{Inverse Problem}
-    Objective: Given the trace curve, find $\xi(t)$.
-\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
-\input{tikz/diagrams/conformalmapping.tikz}
+% Two-Trace Evolution - Periodic Driving
+\begin{frame}{Two-Trace Evolution - Periodic Driving}
+\begin{adjustbox}{max totalsize={\textwidth}{0.85\textheight}, center}
+\input{tikz/cubic/cos.tikz}
 \end{adjustbox}
 \end{frame}
 
