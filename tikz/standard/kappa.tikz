@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+    \begin{groupplot}[ % This is actually kappa
+            group style={
+                group name=left plots,
+                group size=1 by 2,
+                vertical sep = 45pt,
+                },
+            ymin=0,
+            width=0.9\textwidth,
+            xlabel near ticks,
+            height=135pt,
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!30},
+            ymajorgrids,
+            cycle list/Dark2,
+            y grid style={gray!30}
+            ]
+        \nextgroupplot[title={\large ${\xi(t) = 2\sqrt{\kappa(1 - t)}}$},xlabel={$\operatorname{Re}(z)$},ylabel={$\operatorname{Im}(z)$},scale only axis,xmax=2.5,legend pos=north east,]
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-1point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-2point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-3point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-4point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-5point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-6point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-7point5-0-1-1000-500.dat};
+            \addplot+[line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-8point5-0-1-1000-500.dat};
+            \addplot+[red,line width=0.3mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/TranslatedForward/10-9point5-0-1-1000-500.dat};
+            \legend{$\kappa=1.5$,$\kappa=2.5$,$\kappa=3.5$,$\kappa=4.5$,$\kappa=5.5$,$\kappa=6.5$,$\kappa=7.5$,$\kappa=8.5$,$\kappa=9.5$}
+    \end{groupplot}
+\end{tikzpicture}

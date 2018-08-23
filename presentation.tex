@@ -24,6 +24,8 @@
 
 \setbeamertemplate{itemize items}[circle]
 
+\usetikzlibrary{external}
+
 \usetheme{Dresden}
 \usecolortheme{beaver}
 \title[]{Numerical Solutions to Loewner's Equation and Applications}
@@ -145,23 +147,26 @@ Applications:
 
 % Inverse Problem
 \begin{frame}{Inverse Problem}
-    Objective: Given the trace curve, find $\xi(t)$.
+    Objective: Given the trace curve, find $\xi(t)$. \\[10pt]
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 \input{tikz/diagrams/conformalmapping.tikz}
 \end{adjustbox}
 \end{frame}
 
 % Examples of Inverse Problem
-\begin{frame}{Examples of Inverse Problem}
+\begin{frame}{Examples of Inverse Problem - $\xi(t) = c_\alpha \sqrt{t}$}
 Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
-% Therefore c_\alpha \sqrt{t}
-%           c_\alpha = 2 ...
-% Show Fig 2.8
+\begin{align*}
+    \Rightarrow \xi(t) &= c_\alpha \sqrt{t} \\
+    c_\alpha &= 2\frac{1-2\alpha}{\sqrt{\alpha(1 - \alpha)}}
+\end{align*}
+\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
+\input{tikz/inverse/kappa.tikz}
+\end{adjustbox}
 \end{frame}
 
 % Further Examples
 \begin{frame}{Further Examples}
-% Fig 2.5
 \end{frame}
 
 % Further Examples
