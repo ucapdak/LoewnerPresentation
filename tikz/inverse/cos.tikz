@@ -18,20 +18,20 @@
             y grid style={gray!25},
             ]
         \nextgroupplot[ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},ymax=12,xmin=-5,xmax=5,ymin=0,]
-            \addplot+[,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/2-0-25-1000-10.dat};
+            \addplot+[,line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/2-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\xi(t)$},xlabel={$t$},title={\Large$\cos(t)$},xmin=0,xmax=25,]
-            \addplot[color=red,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/2-0-25-1000-10.dat};
+            \addplot[color=red,line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/2-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},ymax=12,ymin=0,]
-            \addplot+[line width=0.8mm] table [ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/3-0-25-1000-10.dat};
+            \addplot+[line width=0.4mm] table [ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/3-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\xi(t)$},xlabel={$t$},title={\Large$t \cos(t)$},xmin=0,xmax=25,]
-            \addplot[color=red,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/3-0-25-1000-10.dat};
+            \addplot[color=red,line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/3-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},ymax=12,xmin=-5,xmax=5,ymin=0,]
-            \addplot+[line width=0.8mm,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/4-0-25-1000-10.dat};
+            \addplot+[line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/4-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\xi(t)$},xlabel={$t$},title={\Large$\cos(\pi t)$},xmin=0,xmax=25,]
-            \addplot[color=red,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/4-0-25-1000-10.dat};
+            \addplot[color=red,line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/4-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\operatorname{Im}(z)$},xlabel={$\operatorname{Re}(z)$},ymax=12,ymin=0,]
-            \addplot+[line width=0.8mm,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/5-0-25-1000-10.dat};
+            \addplot+[line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Forward/5-0-25-1000-10.dat};
         \nextgroupplot[ylabel={$\xi(t)$},xlabel={$t$},title={\Large$t \cos(\pi t)$},xmin=0,xmax=25,]
-            \addplot[color=red,line width=0.8mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/5-0-25-1000-10.dat};
+            \addplot[color=red,line width=0.4mm] table [col sep=space,mark=none,smooth] {Data/SingleTrace/Inverse/5-0-25-1000-10.dat};
     \end{groupplot}
 \end{tikzpicture}
