@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+    \begin{axis}[
+            height=160pt,
+            width=0.9\textwidth,
+            ymin=0,
+            ymax=8,
+            xmin=-18,
+            xmax=3,
+            ylabel={$\operatorname{Im}(z)$},
+            xlabel={$\operatorname{Re}(z)$},
+            tick align=inside,
+            tick pos=left,
+            xmajorgrids,
+            x grid style={gray!25},
+            ymajorgrids,
+            y grid style={gray!25},
+            legend pos = north west,
+            title = {$\xi(t) = 1$},
+            ]
+            \addplot[cyan,dotted,thick,forget plot,domain=0:3,line width = 0.3mm] {tan(30)*x};
+            \addplot[yellow,dotted,thick,forget plot,domain=0:3,line width = 0.3mm] {tan(60)*x};
+            \addplot[color=green,dotted,forget plot,line width = 0.3mm] coordinates {(0,0) (0,10)};
+            \addplot[black,dotted,thick,forget plot,domain=-20:0,line width = 0.3mm] {tan(120)*x};
+            \addplot[red,dotted,thick,forget plot,domain=-20:0,line width = 0.3mm] {tan(150)*x};
+            \addplot[blue,line width = 0.3mm] table [col sep=space,mark=none,smooth] {Data/WedgeGrowth/0-3point1416-0-10-500-1.dat};
+            \addplot[red,line width = 0.3mm] table [col sep=space,mark=none,smooth] {Data/WedgeGrowth/0-2point618-0-10-500-1.dat};
+            \addplot[black,line width = 0.3mm] table [col sep=space,mark=none,smooth] {Data/WedgeGrowth/0-2point0944-0-10-500-1.dat};
+            \addplot[green,line width = 0.3mm] table [col sep=space,mark=none,smooth] {Data/WedgeGrowth/0-1point5708-0-10-500-1.dat};
+            \addplot[yellow,line width = 0.3mm] table [col sep=space,mark=none,smooth] {Data/WedgeGrowth/0-1point0472-0-10-500-1.dat};
+            \addplot[cyan,line width = 0.3mm] table [col sep=space,mark=none,smooth] {Data/WedgeGrowth/0-0point5236-0-10-500-1.dat};
+            \legend{$\alpha=\pi$,$\alpha=\frac{5\pi}{6}$,$\alpha=\frac{2\pi}{3}$,$\alpha=\frac{\pi}{2}$,$\alpha=\frac{\pi}{3}$,$\alpha=\frac{\pi}{6}$,};
+        \end{axis}
+\end{tikzpicture}
