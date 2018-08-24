@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+
+    % Top Centre Box
+    \begin{scope}[scale = 1.7]
+    % Triangle
+    \fill (0,0) node[] (tA) {}
+          -- (2,2) node[] (tB) {}
+          -- (0,2) node[] (tC) {}
+          -- cycle;`
+          \fill [white] (tA.center) -- (tB.center) -- (tC.center) -- cycle;
+          \fill [thick,pattern=north west lines,pattern color=red] (tA.center) -- (tB.center) -- (tC.center) -- cycle;
+    % Angle Line
+    \node[] at (0.8,0) (t_angle_1) {};
+    \node[] at (0.5,0.5) (t_angle_2) {};
+    \draw [-{Stealth[length=2mm]},out=90,in=330,looseness=0.95,thin] (t_angle_1.center) to node[left=20,below=2]{$\alpha$}  (t_angle_2.center);
+    % Dotted bit
+    \draw [line width=0.5mm,dotted] plot [smooth, tension=1] coordinates { (1.4,0.5) (1.5,0.7) (1.5,1.3) (2,1.5)};
+    \fill [white] (1,0.4) rectangle (1.7,0.7);
+    \node[circle,inner sep=0pt,minimum size =1.5mm,fill,label=$B$] at (2,1.5) (B_C) {};
+    % Curly line
+    \draw [line width=0.5mm,blue] plot [smooth, tension=1] coordinates {(1.2,0) (1,0.3) (1.4,0.5) (1.5,0.7)};
+    \node[circle,inner sep=0pt,minimum size =1.5mm,fill,label=$A \quad C$] at (1.5,0.7) (B_C) {};
+    % Top Left Box
+    \draw [<->,thick] (0,2.1) node (tlyaxis) [above] {}
+        |- (2.1,0) node (tlxaxis) [right] {};
+    % Plane Label
+    \node[inner sep=0pt,minimum size =1.5mm,label=$z$-plane,below=25,left=2] at (2,0) (B_C) {};
+    % First Left Arrow Point
+    \node[left=10] at (0,1) (leftarrow1) {};
+    % First Right Arrow Point
+    \node[right=10] at (2,1) (rightarrow1) {};
+    \node[] at (3.5,1) () {$\dot{g_t} = \frac{2g_t}{g_t^\frac{\pi}{\alpha} - \xi(t)^\frac{\pi}{\alpha}}$};
+    \end{scope}
+
+
+\end{tikzpicture}

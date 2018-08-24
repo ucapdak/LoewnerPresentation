@@ -26,6 +26,10 @@
 
 \usetikzlibrary{external}
 
+\usetikzlibrary{patterns}
+
+
+\usetikzlibrary{arrows.meta}
 \usetheme{Dresden}
 \usecolortheme{beaver}
 \title[]{Numerical Solutions to Loewner's Equation and Applications}
@@ -208,24 +212,23 @@ Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
 \end{adjustbox}
 \end{frame}
 
-% Inverse Problem
-\begin{frame}{Inverse Problem}
-    Objective: Given the trace curve, find $\xi(t)$.
+% Wedge Problem
+\begin{frame}{Wedge Problem}
+    New Problem: Determine growth of trace in a wedge of angle $\alpha$.\\[10pt]
+\begin{adjustbox}{max totalsize={\textwidth}{\textheight}, center}
+\input{tikz/diagrams/wedgeintro.tikz}
+\end{adjustbox}
+\end{frame}
+
+% Wedge Problem - Results
+\begin{frame}{Wedge Problem - Results}
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 \input{tikz/diagrams/conformalmapping.tikz}
 \end{adjustbox}
 \end{frame}
 
-% Inverse Problem
-\begin{frame}{Inverse Problem}
-    Objective: Given the trace curve, find $\xi(t)$.
-\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
-\input{tikz/diagrams/conformalmapping.tikz}
-\end{adjustbox}
-\end{frame}
-
-% Inverse Problem
-\begin{frame}{Inverse Problem}
+% Further Work
+\begin{frame}{Further Work}
     Objective: Given the trace curve, find $\xi(t)$.
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 \input{tikz/diagrams/conformalmapping.tikz}
