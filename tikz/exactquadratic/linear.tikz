@@ -2,7 +2,8 @@
     \begin{groupplot}[
             group style={
                 group name=left plots,
-                group size=1 by 2,
+                group size=2 by 1,
+                horizontal sep = 45pt,
                 vertical sep = 45pt},
             height=0.4\textwidth,
             width=0.4\textwidth,

@@ -44,13 +44,14 @@
 \end{frame}
 
 % Introducing Loewner's Equation
+% Remember to define things like driving function here
 \begin{frame}{Loewner's Equation}
 \begin{adjustbox}{max totalsize={.9\textwidth}{.7\textheight},center}
 \input{tikz/diagrams/intro.tikz}
 \end{adjustbox}
-
-$$g_t = \frac{2}{g - \xi(t)}, \quad\quad\quad g_0(z) = z$$
-
+    $$\frac{dg_t}{dt} = \frac{2}{g_t - \xi(t)}, \quad\quad\quad g_0(z) = z$$
+    $\xi(t) \in \mathbb{R}$ is the driving function. \\
+    $g_t$ is a time-dependent conformal map. \\
 Applications:
 \begin{itemize}
 \item Growth of cracks
@@ -62,8 +63,8 @@ Applications:
 % Project Objectives
 \begin{frame}{Project Objectives}
     \begin{enumerate}[(i)]
-    \item Forward problem: Numerically solve Loewner's equation given $\xi(t)$ to find trace
-    \item Inverse problem: Given the trace, find the driving function $\xi(t)$
+        \item Forward problem: Numerically solve Loewner's equation given $\xi(t)$ to find the trace $\gamma(t)$.
+        \item Inverse problem: Given the trace $\gamma(t)$, find the driving function $\xi(t)$.
     \item Two-trace evolutions
     \item Evolution in a wedge geometry
 \end{enumerate}
@@ -72,17 +73,18 @@ Applications:
 % The Forward Problem
 \begin{frame}{The Forward Problem}
     \begin{itemize}
-        \item Objective: Given a driving function $\xi(t)$, find the trace.
+        \item Objective: Given a driving function $\xi(t)$, find the trace $\gamma(t)$.
         \item Numerical approach: Use finite differences, follow a technique described by Kager et al. (2004).
     \end{itemize}
 
     \begin{equation*}
-        \dot{g_t} \simeq \frac{g_t - g_{t - \delta t}}{\delta t} = \frac{2}{g_{t - \delta t} - \xi(t - \partial t)}
+        \frac{dg_t}{dt} \simeq \frac{g_t - g_{t - \delta t}}{\delta t} = \frac{2}{g_{t - \delta t} - \xi(t - \delta t)}
     \end{equation*}
 
     \begin{itemize}
         \item $\Rightarrow$ Determine $g_{t - \delta t}$ by solving a quadratic
         \item  Find $g_{t - 2\delta t},g_{t - 3\delta t} \dots \Rightarrow$ Find $g_0$
+        \item  Successively solve for $g_0$ for different times in order to construct the trace $\gamma(t)$
     \end{itemize}
 
 \end{frame}
@@ -117,7 +119,7 @@ Applications:
 \end{frame}
 
 % Constant Driving
-\begin{frame}{Constant Driving - $\xi(t) = 0$}
+\begin{frame}{Constant Driving - $\xi(t) = 0$ (for $C=0$)}
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 \input{tikz/standard/modifiedconstant.tikz}
 \end{adjustbox}
@@ -125,14 +127,10 @@ Applications:
 
 % Linear Driving
 \begin{frame}{Linear Driving - $\xi(t) = t$}
-    \begin{tabular}{cc}
-\begin{adjustbox}{max totalsize={.3\textwidth}{.9\textheight}}
+\begin{adjustbox}{max totalsize={\textwidth}{0.7\textheight}}
 \input{tikz/exactquadratic/linear.tikz}
 \end{adjustbox}
-\begin{adjustbox}{max totalsize={.7\textwidth}{.9\textheight}}
-\input{tikz/exactquadratic/linearphi.tikz}
-\end{adjustbox}
-\end{tabular}
+    Exact Solution: $\gamma(t) = t - 2 \ln ( 2 - \gamma(t) ) + 2 \ln 2$
 \end{frame}
 
 % Square-Root Driving
@@ -150,8 +148,9 @@ Applications:
 \end{frame}
 
 % Inverse Problem
+% Mention discretising the trace curve
 \begin{frame}{Inverse Problem}
-    Objective: Given the trace curve, find $\xi(t)$. \\[10pt]
+    Objective: Given the trace curve $\gamma(t)$, find $\xi(t)$. \\[10pt]
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 \input{tikz/diagrams/conformalmapping.tikz}
 \end{adjustbox}
@@ -160,20 +159,13 @@ Use algorithm of Kennedy (2004).
 
 % Examples of Inverse Problem
 \begin{frame}{Examples of Inverse Problem - $\xi(t) = c_\alpha \sqrt{t}$}
-Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
+Test Problem: Can show straight line of angle $\alpha \pi$ to real axis has the driving function
 \begin{align*}
     \Rightarrow \xi(t) &= c_\alpha \sqrt{t} \\
     c_\alpha &= 2\frac{1-2\alpha}{\sqrt{\alpha(1 - \alpha)}}
 \end{align*}
 \begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 \input{tikz/inverse/kappa.tikz}
-\end{adjustbox}
-\end{frame}
-
-% Further Examples
-\begin{frame}{Further Examples - Periodic Driving}
-\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
-\input{tikz/inverse/cos.tikz}
 \end{adjustbox}
 \end{frame}
 
@@ -193,7 +185,7 @@ Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
     \end{align*}
     Then the procedure is
     \begin{gather*}
-        \frac{\delta g}{\delta t} =  \frac{2g}{g^2 - \xi(t - \delta t)}, \\
+        \frac{\delta g_t}{\delta t} =  \frac{2g_{t - \delta t}}{g_{t - \delta t}^2 - \xi(t - \delta t)}, \\
      \Rightarrow {g_{t - \delta t}}^{3} - {g_{t - \delta t}}^{2} {g_t} + {g_{t -\delta t}} (2 \, {\delta t} - {\xi(t - \delta t)}^{2} ) + {g_t} {\xi(t - \delta t)}^{2} = 0.
     \end{gather*}
 \end{frame}
@@ -229,6 +221,12 @@ Test Problem: Can show straight line of angle $\alpha \pi$ to real axis
 
 % Further Work
 \begin{frame}{Further Work}
+    \begin{itemize}
+        \item Stream bifurcations
+        \item Random driving functions
+        \item Kappa-driving
+        \item Approximate algorithms
+    \end{itemize}
 \end{frame}
 
 \end{document}
